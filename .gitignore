@@ -1,0 +1,10 @@
+cache
+citizen
+*.dll
+crashes
+db
+server-monitor-token.key
+server-tls.crt
+server-tls.key
+FXServer.exe
+components.json
