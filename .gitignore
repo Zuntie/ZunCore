@@ -8,3 +8,4 @@ server-tls.crt
 server-tls.key
 FXServer.exe
 components.json
+configs/*.*

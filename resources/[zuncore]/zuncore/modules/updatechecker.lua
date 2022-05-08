@@ -1,6 +1,6 @@
 Citizen.CreateThread( function()
-    updatePath = "/Zuntie/ZunCore/" -- your git user/repo path
-    resourceName = "FiveM-Resource-Version-Check-Thing ("..GetCurrentResourceName()..")" -- the resource name
+    updatePath = "/Zuntie/ZunCore/tree/main/resources/%5Bzuncore%5D/zuncore" -- your git user/repo path
+    resourceName = "ZunCore ("..GetCurrentResourceName()..")" -- the resource name
     
     function checkVersion(err,responseText, headers)
         curVersion = LoadResourceFile(GetCurrentResourceName(), "version") -- make sure the "version" file actually exists in your resource root!
