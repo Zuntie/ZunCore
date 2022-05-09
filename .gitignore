@@ -9,4 +9,6 @@ server-tls.key
 FXServer.exe
 components.json
 configs/secretkeys.cfg
+configs/!references.txt
+configs/!ascii.txt
 C:\Users\Zuntie\Documents\ZunCore\ZunCore\configs\secretkeys.cfg
