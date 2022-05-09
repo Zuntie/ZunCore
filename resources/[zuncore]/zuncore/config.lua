@@ -1,3 +1,3 @@
 Config = {}
 
-Config.checkForUpdates = true
+Config.CheckForUpdates = true

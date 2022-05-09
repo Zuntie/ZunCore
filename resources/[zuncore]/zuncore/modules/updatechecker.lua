@@ -1,25 +1,18 @@
 if Config.CheckForUpdates then
-    Citizen.CreateThread(
-        function()
-            updatePath = "/Zuntie/ZunCore"
-            resourceName = "ZunCore ("..GetCurrentResourceName()..")"
-            PerformHttpRequest("https://raw.githubusercontent.com"..updatePath.."/main/version", checkVersion, "GET")
+    AddEventHandler('onResourceStart', function(resourceName)
+        if resourceName == GetCurrentResourceName() then
+            PerformHttpRequest("https://raw.githubusercontent.com/Zuntie/ZunCore/main/resources/%5Bzuncore%5D/zuncore/modules/version", function (errorCode, resultData, resultHeaders)
+                local version = tonumber(resultData)
+                local curVersion = LoadResourceFile(GetCurrentResourceName(), "version")
+                local curVersion_ = tonumber(curVersion)
+                if version > curVersion_ then
+                    print("[ZunCore] Attention: There is a new version of ZunCore available!\nCurrent version: " .. curVersion_ .. "\nNew version: " .. version)
+                elseif version == curVersion_ then
+                    print("[ZunCore] You are using the latest version of ZunCore ("..curVersion_..")!")
+                else
+                    print("[ZunCore] Something has gone wrong, while updating. Current version: " .. tonumber(curVersion) .. " | Github version: " .. version)
+                end
+            end)
+        end
     end)
-end
-
-function checkVersion(err, responseText, headers)
-    curVersion = LoadResourceFile(GetCurrentResourceName(), "version")
-    
-    if curVersion ~= responseText and tonumber(curVersion) < tonumber(responseText) then
-        updateavail = true
-        print("\n^1----------------------------------------------------------------------------------^7")
-        print(resourceName.." is outdated, latest version is: ^2"..responseText.."^7, installed version: ^1"..curVersion.."^7!\nupdate from https://github.com"..updatePath.."")
-        print("^1----------------------------------------------------------------------------------^7")
-    elseif tonumber(curVersion) > tonumber(responseText) then
-        print("\n^3----------------------------------------------------------------------------------^7")
-        print(resourceName.." git version is: ^2"..responseText.."^7, installed version: ^1"..curVersion.."^7!")
-        print("^3----------------------------------------------------------------------------------^7")
-    else
-        return
-    end
 end
