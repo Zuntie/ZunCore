@@ -14,7 +14,21 @@ Download FiveM's artifacts
 
 ## Setup
 
-Edit the configs/secretkeys.cfg to your own keys.
+Change the paths in server.cfg, to where the files are on your system.
+```python
+## CONFIGS ##
+exec C:\Users\Zuntie\Documents\ZunCore\ZunCore\configs\serveroptions.cfg
+exec C:\Users\Zuntie\Documents\ZunCore\ZunCore\configs\admins.cfg
+exec C:\Users\Zuntie\Documents\ZunCore\ZunCore\configs\secretkeys.cfg
+exec C:\Users\Zuntie\Documents\ZunCore\ZunCore\configs\resources.cfg
+```
+
+As an example:
+```python
+exec C:\Users\Administrator\Desktop\ZunCore\configs\serveroptions.cfg
+```
+
+Change the keys in configs/secretkeys.cfg to your own keys.
 
 [SteamWebApiKey](https://steamcommunity.com/dev/apikey)
 [Keymaster](https://keymaster.fivem.net)
